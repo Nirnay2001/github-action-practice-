@@ -3,20 +3,14 @@ name: nodeJS deployment to EC2
 on: push
 
 jobs: 
-    first_job:
+    Test:
         runs-on: ubuntu-latest
         steps:
             - name: checkout repo
               uses: actions/checkout@v7
 
-            - name: Update Intence install dependency
-              run: | 
-                sudo apt update
-                sudo apt install -y curl
-                curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
-                
-            - name: Install nodeJS
-              run: sudo apt install -y nodejs
+            - name: Execute shell script
+              run: ./nodeJS-install.sh
 
             - name: Checkout nodeJS
               run: |
