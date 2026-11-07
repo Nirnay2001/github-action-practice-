@@ -8,7 +8,7 @@ env:
     IMAGE_NAME: nodejs-github
 
 jobs: 
-    Install:
+    Docker:
         runs-on: ubuntu-latest
         steps:
             - name: checkout repo
@@ -35,6 +35,18 @@ jobs:
             - name: Docker push to repo
               run: sudo docker push ${{env.DOCKER_USERNAME}}/${{env.IMAGE_NAME}}:latest
 
+    Deploy:
+      needs: Docker
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout repo
+          uses: actions/checkout@v7
+
+        - name: Validate docker compose version
+          run: sudo docker compose version
+          
+
+      
             
       
               

@@ -10,16 +10,16 @@ A small, responsive learning dashboard built with Node.js and plain HTML, CSS, a
 
 Set the `PORT` environment variable to use a different port.
 
-## Run with Docker
+## Run with Docker Compose
 
-Build the image and start the container:
+Pull the image and start the app:
 
 ```sh
-docker build -t learnspace .
-docker run --rm -p 3000:3000 learnspace
+docker compose pull
+docker compose up
 ```
 
-Open [http://localhost:3000](http://localhost:3000). Set `PORT` when starting the container to use a different port, and publish the same container port with `-p`.
+Open [http://localhost:3000](http://localhost:3000). Stop the app with `Ctrl+C`, or run `docker compose down` from another terminal.
 
 ## What to try
 

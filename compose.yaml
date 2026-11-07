@@ -1,0 +1,5 @@
+services:
+  app:
+    image: nirnay2001/nodejs-github:latest
+    ports:
+      - "3000:3000"
