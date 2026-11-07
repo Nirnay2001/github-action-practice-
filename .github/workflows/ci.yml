@@ -9,15 +9,17 @@ jobs:
             - name: checkout repo
               uses: actions/checkout@v7
 
-            - name: welcome msg
+            - name: Update Intence install dependency
+              run: | 
+                sudo apt update
+                sudo apt install -y curl
+                curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
+                
+            - name: Install nodeJS
+              run: sudo apt install -y nodejs
+
+            - name: Checkout nodeJS
               run: |
-                echo "mu first git hub action"
-                pwd
-                whoami
-            
-            - name: List file
-              run: ls
-            
-            - name: read readme file
-              run: cat README.md
+                npm --version
+                node --version
             
