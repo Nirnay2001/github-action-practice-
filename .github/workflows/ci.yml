@@ -3,7 +3,7 @@ name: nodeJS deployment to EC2
 on: push
 
 jobs: 
-    Test:
+    Install:
         runs-on: ubuntu-latest
         steps:
             - name: checkout repo
@@ -21,7 +21,12 @@ jobs:
 
             - name: Install dependency
               run: npm install
-
-            - name: Start unit test
-              run: npm test
+    
+    Test:
+      needs: Install
+      runs-on: ubuntu-latest
+      steps:
+        - name: Run unit test
+          run: npm test
+        
             
