@@ -22,4 +22,10 @@ jobs:
               run: |
                 npm --version
                 node --version
+
+            - name: Install dependency
+              run: npm install
+
+            - name: Start unit test
+              run: npm test
             
