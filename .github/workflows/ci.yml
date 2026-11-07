@@ -46,7 +46,7 @@ jobs:
           run: sudo docker compose pull
 
         - name: Docker compose up
-          run: sudo docker compose up
+          run: sudo docker compose up -d
 
 
 
