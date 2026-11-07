@@ -5,7 +5,7 @@ on: push
 env: 
     CONTAINER_REGISTRY: docker.io
     DOCKER_USERNAME: nirnay2001
-    IMAGE_NAME: nodeJS-github
+    IMAGE_NAME: nodejs-github
 
 jobs: 
     Install:
