@@ -1,0 +1,17 @@
+name: nodeJS deployment to EC2
+
+on: push
+
+jobs: 
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: welcome msg
+              run: echo "mu first git hub action"
+            
+            - name: List file
+              run: ls
+            
+            - name: read readme file
+              run: cat README.md
+            
