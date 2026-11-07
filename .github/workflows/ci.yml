@@ -28,7 +28,13 @@ jobs:
 
             - name: Docker info
               run: sudo docker info
-              
+
+            - name: Docker tag 
+              run: sudo docker tag ${{env.IMAGE_NAME}}:latest ${{env.DOCKER_USERNAME}}/${{env.IMAGE_NAME}}:latest
+
+            - name: Docker push to repo
+              run: sudo docker push ${{env.DOCKER_USERNAME}}/${{env.IMAGE_NAME}}:latest
+
             
       
               
