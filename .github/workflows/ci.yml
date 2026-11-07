@@ -24,7 +24,7 @@ jobs:
               run: sudo docker images
 
             - name: Docker login
-              run: sudo docker login --username=${{env.DOCKER_USERNAME}} --password=Nirnay@2001
+              run: sudo docker login --username=${{env.DOCKER_USERNAME}} --password=
 
             - name: Docker info
               run: sudo docker info
