@@ -18,9 +18,6 @@ jobs:
               run: |
                 npm --version
                 node --version
-
-            - name: Install dependency
-              run: npm install
             
             - name: Upload Dependencies
               uses: actions/upload-artifact@v4
@@ -35,12 +32,15 @@ jobs:
       steps:
         - name: checkout repo
           uses: actions/checkout@v7
-          
+
         - name: Download Dependencies
           uses: actions/download-artifact@v4
           with:
             name: node-dependencies
             path: node_modules/
+        
+        - name: Download projec dependency
+          run: npm install
 
         - name: Run unit test
           run: npm test
