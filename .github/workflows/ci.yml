@@ -20,5 +20,8 @@ jobs:
             - name: Docker build
               run: sudo docker build -t ${{env.IMAGE_NAME}}:latest .
             
+            - name: Docker image validation
+              run: sudo docker images
+            
       
               
