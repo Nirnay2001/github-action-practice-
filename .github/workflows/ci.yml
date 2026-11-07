@@ -2,6 +2,11 @@ name: nodeJS deployment to EC2
 
 on: push
 
+env: 
+    CONTAINER_REGISTRY: docker.io
+    DOCKER_USERNAME: nirnay2001
+    IMAGE_NAME: nodeJS-github
+
 jobs: 
     Install:
         runs-on: ubuntu-latest
@@ -11,4 +16,9 @@ jobs:
 
             - name: Docker check
               run : docker --version
+
+            - name: Docker build
+              run: sudo docker build -t ${{env.DOCKER_USERNAME}}/${{env.IMAGE_NAME}}:latest
+            
+      
               
