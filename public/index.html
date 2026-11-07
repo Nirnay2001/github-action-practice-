@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7f2">
+    <meta name="description" content="A calm, colorful space to learn a little something every day.">
+    <title>Learnspace — your learning corner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/course-data.js" defer></script>
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#" aria-label="Learnspace home">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+          <span>learnspace<span class="brand-period">.</span></span>
+        </a>
+
+        <div class="sidebar-label">YOUR SPACE</div>
+        <nav class="main-nav" aria-label="Main navigation">
+          <button class="nav-link active" data-view="overview"><span class="nav-icon">⌂</span> Overview</button>
+          <button class="nav-link" data-view="courses"><span class="nav-icon">▤</span> My courses <span class="nav-count" id="course-count">4</span></button>
+          <button class="nav-link" data-view="discover"><span class="nav-icon">⌕</span> Discover</button>
+          <button class="nav-link" data-view="saved"><span class="nav-icon">♡</span> Saved for later</button>
+        </nav>
+
+        <div class="sidebar-label category-label">YOUR CATEGORIES</div>
+        <nav class="category-nav" aria-label="Course categories">
+          <button class="category-link" data-category="Design"><span class="category-dot dot-peach"></span> Design</button>
+          <button class="category-link" data-category="Development"><span class="category-dot dot-purple"></span> Development</button>
+          <button class="category-link" data-category="Business"><span class="category-dot dot-green"></span> Business</button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="upgrade-card">
+            <div class="upgrade-sparkle">✳</div>
+            <p class="upgrade-title">Make room for more</p>
+            <p class="upgrade-copy">Little steps lead to lovely things.</p>
+            <button class="upgrade-button" id="explore-button">Explore all courses <span>↗</span></button>
+            <span class="upgrade-decoration decoration-one"></span>
+            <span class="upgrade-decoration decoration-two"></span>
+          </div>
+          <button class="profile-button">
+            <span class="avatar">J</span>
+            <span class="profile-copy"><strong>Jamie Parker</strong><small>Curious learner</small></span>
+            <span class="profile-menu">···</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <button class="mobile-menu" id="menu-button" aria-label="Open navigation" aria-expanded="false">☰</button>
+          <div class="breadcrumb"><span>My space</span><span class="breadcrumb-slash">/</span><strong id="breadcrumb-current">Overview</strong></div>
+          <div class="topbar-actions">
+            <span class="today-label" id="today-label">Tuesday, May 21</span>
+            <button class="icon-button notification-button" aria-label="Notifications">♧<span class="notification-dot"></span></button>
+          </div>
+        </header>
+
+        <div class="page-content">
+          <section class="welcome-row">
+            <div>
+              <p class="eyebrow"><span class="sun-icon">☀</span> YOUR LITTLE CORNER OF THE INTERNET</p>
+              <h1>Good morning, Jamie <span class="wave">✳</span></h1>
+              <p class="welcome-subtitle">A little progress each day adds up to <span>big things.</span></p>
+            </div>
+            <div class="streak-card">
+              <div class="streak-icon">♨</div>
+              <div><strong id="streak-value">5 day streak</strong><span>You're on a roll!</span></div>
+              <div class="streak-spark">✦</div>
+            </div>
+          </section>
+
+          <section class="hero-card" aria-label="Continue learning">
+            <div class="hero-content">
+              <span class="hero-kicker"><span class="live-dot"></span> PICK UP WHERE YOU LEFT OFF</span>
+              <h2>Make something<br>beautiful today.</h2>
+              <p>You're finding your flow with the fundamentals of thoughtful design.</p>
+              <button class="hero-button" id="continue-button">Continue learning <span>→</span></button>
+              <div class="hero-progress">
+                <span id="hero-progress-label">Your progress</span>
+                <div class="progress-track"><span id="hero-progress-bar" style="width: 38%"></span></div>
+                <strong id="hero-progress-value">38%</strong>
+              </div>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="art-sun"></div><div class="art-orbit orbit-outer"></div><div class="art-orbit orbit-inner"></div>
+              <div class="art-leaf leaf-one"></div><div class="art-leaf leaf-two"></div><div class="art-leaf leaf-three"></div>
+              <div class="art-squiggle">〰</div><div class="art-star">✳</div><div class="art-spark">✦</div>
+              <div class="art-sticker">keep<br>growing<span>↗</span></div>
+            </div>
+            <span class="hero-number">01 — 04</span>
+          </section>
+
+          <section class="courses-section" id="courses-section">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow section-eyebrow">YOUR LEARNING PATH</p>
+                <h2 id="course-section-title">Courses in progress <span class="heading-count" id="heading-count">04</span></h2>
+              </div>
+              <div class="course-controls">
+                <label class="search-box"><span aria-hidden="true">⌕</span><input id="course-search" type="search" placeholder="Find a course" aria-label="Find a course"></label>
+                <button class="text-button" id="see-all-button">See all <span>→</span></button>
+              </div>
+            </div>
+
+            <div class="filter-row" id="filter-row" aria-label="Filter courses">
+              <button class="filter-chip selected" data-filter="All">All courses <span>04</span></button>
+              <button class="filter-chip" data-filter="Design">Design</button>
+              <button class="filter-chip" data-filter="Development">Development</button>
+              <button class="filter-chip" data-filter="Business">Business</button>
+            </div>
+
+            <div class="course-grid" id="course-grid" aria-live="polite"></div>
+            <div class="empty-state" id="empty-state" hidden>
+              <span>✳</span><h3>No courses found just yet</h3><p>Try a different search or category.</p>
+            </div>
+          </section>
+
+          <section class="bottom-row">
+            <div class="quote-card">
+              <span class="quote-mark">“</span>
+              <blockquote>You don't have to see the whole staircase, just take the first step.</blockquote>
+              <p>— MARTIN LUTHER KING JR.</p>
+              <span class="quote-spark">✳</span>
+            </div>
+            <div class="week-card">
+              <div class="week-heading"><div><p class="eyebrow">YOUR MOMENTUM</p><h3>This week</h3></div><span class="week-total"><strong id="week-total">2.5</strong> hrs</span></div>
+              <div class="week-chart" aria-label="Study hours this week: Monday 1 hour, Tuesday 1.5 hours, Wednesday 0.5 hours, Thursday 1 hour, Friday 2 hours, Saturday 0.5 hours, Sunday 1 hour">
+                <div class="chart-column"><span class="chart-bar bar-one" style="--height:38%"></span><small>M</small></div>
+                <div class="chart-column"><span class="chart-bar bar-two" style="--height:58%"></span><small>T</small></div>
+                <div class="chart-column"><span class="chart-bar bar-three active-bar" style="--height:28%"></span><small>W</small></div>
+                <div class="chart-column"><span class="chart-bar bar-four" style="--height:45%"></span><small>T</small></div>
+                <div class="chart-column"><span class="chart-bar bar-five" style="--height:72%"></span><small>F</small></div>
+                <div class="chart-column"><span class="chart-bar bar-six" style="--height:30%"></span><small>S</small></div>
+                <div class="chart-column"><span class="chart-bar bar-seven" style="--height:48%"></span><small>S</small></div>
+              </div>
+              <p class="week-note"><span>↗</span> Keep it up! You're building a lovely habit.</p>
+            </div>
+          </section>
+          <footer class="footer-note">Made for curious minds, one small step at a time <span>✳</span></footer>
+        </div>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="modal-backdrop" id="lesson-modal" hidden>
+      <section class="lesson-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" id="modal-close" aria-label="Close lesson">×</button>
+        <span class="modal-kicker" id="modal-category">YOUR NEXT LITTLE LESSON</span>
+        <div class="modal-art" id="modal-art" aria-hidden="true">✳</div>
+        <h2 id="modal-title">Lesson title</h2>
+        <p id="modal-description">A tiny step, a new idea, and a little more confidence.</p>
+        <div class="lesson-meta"><span id="modal-duration">◷ 12 min</span><span id="modal-step">LESSON 1 OF 5</span></div>
+        <button class="modal-complete" id="complete-lesson">Mark lesson complete <span>→</span></button>
+        <p class="modal-footnote">Your progress saves automatically on this device.</p>
+      </section>
+    </div>
+  </body>
+</html>
