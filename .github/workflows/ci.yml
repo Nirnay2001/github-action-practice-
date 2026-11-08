@@ -2,10 +2,7 @@ name: nodeJS deployment to EC2
 
 on: push
 
-env: 
-    CONTAINER_REGISTRY: docker.io
-    DOCKER_USERNAME: nirnay2001
-    IMAGE_NAME: nodejs-github
+
 
 jobs: 
     Docker:
@@ -18,22 +15,22 @@ jobs:
               run : docker --version
 
             - name: Docker build
-              run: sudo docker build -t ${{env.IMAGE_NAME}}:latest .
+              run: sudo docker build -t ${{secrets.IMAGE_NAME}}:latest .
             
             - name: Docker image validation
               run: sudo docker images
 
             - name: Docker login
-              run: sudo docker login --username=${{env.DOCKER_USERNAME}} --password=
+              run: sudo docker login --username=${{secrets.DOCKER_USERNAME}} --password=${{secrets.DOCKER_PASSWORD}}
 
             - name: Docker info
               run: sudo docker info
 
             - name: Docker tag 
-              run: sudo docker tag ${{env.IMAGE_NAME}}:latest ${{env.DOCKER_USERNAME}}/${{env.IMAGE_NAME}}:latest
+              run: sudo docker tag ${{secrets.IMAGE_NAME}}:latest ${{secrets.DOCKER_USERNAME}}/${{secrets.IMAGE_NAME}}:latest
 
             - name: Docker push to repo
-              run: sudo docker push ${{env.DOCKER_USERNAME}}/${{env.IMAGE_NAME}}:latest
+              run: sudo docker push ${{secrets.DOCKER_USERNAME}}/${{secrets.IMAGE_NAME}}:latest
 
     Deploy:
       needs: Docker
