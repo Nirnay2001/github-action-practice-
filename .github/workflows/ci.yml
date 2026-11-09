@@ -38,6 +38,7 @@ jobs:
 
     Deploy:
       needs: Docker
+      timeout-minutes: 1
       concurrency: 
         group: production-deploy
         cancel-in-progress: false
