@@ -1,6 +1,9 @@
 name: nodeJS deployment to EC2
 
-on: push
+on: 
+  schedule:
+    - cron: "*/1 * * * *"
+    
 
 
 
