@@ -38,7 +38,13 @@ jobs:
 
     Deploy:
       needs: Docker
-      timeout-minutes: 1
+      timeout-minutes: 15
+      
+      strategy:
+        max-parallel: 2
+        fail-fast: false
+        matrix:
+          os: [ubuntu-latest, Ubuntu 25.10, Ubuntu 18.04 LTS]
       concurrency: 
         group: production-deploy
         cancel-in-progress: false
