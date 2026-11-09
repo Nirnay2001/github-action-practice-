@@ -1,9 +1,9 @@
 name: nodeJS deployment to EC2
 
 on:
-  #workflow_dispatch:  
-  schedule:
-    - cron: "*/5 * * * *"
+  workflow_dispatch:  
+  #schedule:
+  #  - cron: "*/5 * * * *"
 
 
 
