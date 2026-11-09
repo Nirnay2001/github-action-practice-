@@ -51,9 +51,15 @@ jobs:
           run: sudo docker compose pull
 
         - name: Docker compose up
+          run: sudo docker compose up -d
+
+        - name: Install test dependency 
           run: |
-            sudo docker compose up -d
-            sleep 300s
+            chmod +x nodeJS-install.sh
+            ./nodeJS-install.sh
+        
+        - name: Run test
+          run: npm test
 
 
 
