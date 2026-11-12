@@ -46,7 +46,7 @@ jobs:
         matrix:
           os: [ubuntu-latest, Ubuntu 25.10, Ubuntu 18.04 LTS]
       concurrency: 
-        group: production-deploy
+        group: production-deploy-${{ matrix.os }}
         cancel-in-progress: false
       runs-on: ${{ matrix.os }}
       steps:
