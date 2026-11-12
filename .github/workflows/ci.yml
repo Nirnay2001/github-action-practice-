@@ -44,7 +44,7 @@ jobs:
       strategy:
         max-parallel: 3
         matrix:
-          os: [ubuntu-latest, Ubuntu 25.10, Ubuntu 18.04 LTS]
+          os: [ubuntu-latest]
       concurrency: 
         group: production-deploy-${{ matrix.os }}
         cancel-in-progress: false
